@@ -13,6 +13,14 @@ namespace Rentlix
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
+                "ListCustomers",
+                "Customers/Detail/{id}",
+                new {controller = "Customers", action = "ListCustomers"}
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
